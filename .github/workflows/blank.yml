@@ -1,0 +1,20 @@
+name: Email Notification
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        connection_url: smtp://simon.pastrana@millasiete.com:djxnctofsvrbvczj@smtp.gmail.com:587
+        subject: Github Actions job result
+        to: spastrana1@babson.edu
+        from: Simon Pastrana <simon.pastrana@millasiete.com.com>
+        body: Build job of ${{github.repository}} completed successfully!
